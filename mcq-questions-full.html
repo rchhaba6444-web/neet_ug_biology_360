@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCQ Questions - NEET UG Biology 360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/clear-auth.js"></script>
+    <style>
+        .chapter-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            border-color: #10B981;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .locked-content {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .locked-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #F59E0B;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 20;
+        }
+
+        .question-count {
+            background: #10B981;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            min-height: 100vh;
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-dna text-blue-600 text-2xl"></i>
+                    <span class="text-xl font-bold text-gray-800">NEET UG Biology 360</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="ncert-notes-full.html" class="text-gray-700 hover:text-blue-600 transition-colors">NCERT
+                        Notes</a>
+                    <a href="mcq-questions-full.html" class="text-green-600 font-semibold">MCQ Questions</a>
+                    <a href="diagram-booklet-full.html"
+                        class="text-gray-700 hover:text-blue-600 transition-colors">Diagram Booklet</a>
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Pricing</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- Auth Buttons (shown when logged out) -->
+                    <div id="authButtons" class="flex items-center space-x-4">
+                        <a href="auth.html"
+                            class="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors">Login</a>
+                        <a href="auth.html"
+                            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Sign
+                            Up</a>
+                    </div>
+                    <!-- User Menu (shown when logged in) -->
+                    <div id="userMenu" class="hidden flex items-center space-x-4">
+                        <a href="dashboard.html"
+                            class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                            <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                        </a>
+                        <button onclick="logout()"
+                            class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white pt-20 pb-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                        <i class="fas fa-question-circle mr-3"></i>MCQ Questions
+                    </h1>
+                    <p class="text-xl mb-8">
+                        2100+ carefully curated MCQ questions for NEET UG Biology. Chapter-wise categorization with
+                        case-based questions and detailed solutions.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                            <i class="fas fa-list-check mr-2"></i>
+                            <span class="font-semibold">1,920+ Questions</span>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                            <i class="fas fa-book mr-2"></i>
+                            <span class="font-semibold">32 Chapters</span>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            <span class="font-semibold">Detailed Solutions</span>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                            <i class="fas fa-file-medical mr-2"></i>
+                            <span class="font-semibold">Case Based</span>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <div class="text-3xl font-bold mb-2">Get Complete Access</div>
+                        <div class="text-xl mb-4">All 1,920+ questions + Solutions + Case studies</div>
+                        <div class="flex items-center gap-4">
+                            <div class="text-4xl font-bold">₹3,200</div>
+                            <div class="text-lg line-through opacity-75">₹3,999</div>
+                        </div>
+                        <button onclick="purchaseComplete()"
+                            class="mt-4 px-8 py-3 bg-yellow-400 text-gray-800 rounded-lg hover:bg-yellow-500 font-bold text-lg">
+                            <i class="fas fa-shopping-cart mr-2"></i>Buy Complete Package
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://via.placeholder.com/600x500/10B981/FFFFFF?text=MCQ+Questions+Collection"
+                        alt="MCQ Questions" class="rounded-2xl shadow-2xl w-full floating">
+                    <div
+                        class="absolute -top-4 -right-4 bg-yellow-400 text-gray-800 px-4 py-2 rounded-lg font-bold transform rotate-3 shadow-lg">
+                        Limited Offer!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Why Choose Our MCQ Questions?</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive question bank designed specifically for NEET UG Biology preparation
+                </p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-question-circle text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">1,920+ Questions</h3>
+                    <p class="text-gray-600">Comprehensive question bank</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-book text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Chapter-wise</h3>
+                    <p class="text-gray-600">Organized by chapters</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-file-medical text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Case Based</h3>
+                    <p class="text-gray-600">Real-world scenarios</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-check-circle text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Solutions</h3>
+                    <p class="text-gray-600">Detailed explanations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapters Grid -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">All Chapters</h2>
+                <p class="text-lg text-gray-600">Click on any chapter to access MCQ questions</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- UNIT I: Diversity in the Living World -->
+                <div class="col-span-full mt-12 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 flex-grow bg-gradient-to-r from-green-600 to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 uppercase tracking-wider">UNIT I: Diversity in the
+                            Living World</h2>
+                        <div class="h-1 flex-grow bg-gradient-to-l from-green-600 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Chapter 1 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+1+MCQ"
+                                alt="The Living World MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="The Living World">Chapter 1:
+                            The Living World</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(1, 'The Living World')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 2 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+2+MCQ"
+                                alt="Biological Classification MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Biological Classification">
+                            Chapter 2: Biological Classification</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(2, 'Biological Classification')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 3 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+3+MCQ"
+                                alt="Plant Kingdom MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Plant Kingdom">Chapter 3: Plant
+                            Kingdom</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(3, 'Plant Kingdom')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 4 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+4+MCQ"
+                                alt="Animal Kingdom MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Animal Kingdom">Chapter 4:
+                            Animal Kingdom</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(4, 'Animal Kingdom')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIT II: Structural Organisation in Plants and Animals -->
+                <div class="col-span-full mt-12 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 flex-grow bg-gradient-to-r from-green-600 to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 uppercase tracking-wider">UNIT II: Structural
+                            Organisation in Plants and Animals</h2>
+                        <div class="h-1 flex-grow bg-gradient-to-l from-green-600 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Chapter 5 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+5+MCQ"
+                                alt="Morphology of Flowering Plants MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Morphology of Flowering Plants">Chapter 5: Morphology of Flowering Plants</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(5, 'Morphology of Flowering Plants')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 6 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+6+MCQ"
+                                alt="Anatomy of Flowering Plants MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Anatomy of Flowering Plants">
+                            Chapter 6: Anatomy of Flowering Plants</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(6, 'Anatomy of Flowering Plants')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 7 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+7+MCQ"
+                                alt="Structural Organisation in Animals MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Structural Organisation in Animals">Chapter 7: Structural Organisation in Animals
+                        </h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(7, 'Structural Organisation in Animals')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIT III: Cell: Structure and Functions -->
+                <div class="col-span-full mt-12 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 flex-grow bg-gradient-to-r from-green-600 to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 uppercase tracking-wider">UNIT III: Cell: Structure
+                            and Functions</h2>
+                        <div class="h-1 flex-grow bg-gradient-to-l from-green-600 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Chapter 8 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+8+MCQ"
+                                alt="Cell: The Unit of Life MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Cell: The Unit of Life">Chapter
+                            8: Cell: The Unit of Life</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(8, 'Cell: The Unit of Life')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 9 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+9+MCQ"
+                                alt="Biomolecules MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Biomolecules">Chapter 9:
+                            Biomolecules</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(9, 'Biomolecules')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 10 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+10+MCQ"
+                                alt="Cell Cycle and Cell Division MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Cell Cycle and Cell Division">
+                            Chapter 10: Cell Cycle and Cell Division</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(10, 'Cell Cycle and Cell Division')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIT IV: Plant Physiology -->
+                <div class="col-span-full mt-12 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 flex-grow bg-gradient-to-r from-green-600 to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 uppercase tracking-wider">UNIT IV: Plant Physiology
+                        </h2>
+                        <div class="h-1 flex-grow bg-gradient-to-l from-green-600 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Chapter 11 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+11+MCQ"
+                                alt="Photosynthesis in Higher Plants MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Photosynthesis in Higher Plants">Chapter 11: Photosynthesis in Higher Plants</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(11, 'Photosynthesis in Higher Plants')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 12 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+12+MCQ"
+                                alt="Respiration in Plants MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Respiration in Plants">Chapter
+                            12: Respiration in Plants</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(12, 'Respiration in Plants')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 13 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+13+MCQ"
+                                alt="Plant Growth and Development MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Plant Growth and Development">
+                            Chapter 13: Plant Growth and Development</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(13, 'Plant Growth and Development')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIT V: Human Physiology -->
+                <div class="col-span-full mt-12 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 flex-grow bg-gradient-to-r from-green-600 to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 uppercase tracking-wider">UNIT V: Human Physiology
+                        </h2>
+                        <div class="h-1 flex-grow bg-gradient-to-l from-green-600 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Chapter 14 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+14+MCQ"
+                                alt="Breathing and Exchange of Gases MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Breathing and Exchange of Gases">Chapter 14: Breathing and Exchange of Gases</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(14, 'Breathing and Exchange of Gases')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 15 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+15+MCQ"
+                                alt="Body Fluids and Circulation MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Body Fluids and Circulation">
+                            Chapter 15: Body Fluids and Circulation</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(15, 'Body Fluids and Circulation')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 16 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+16+MCQ"
+                                alt="Excretory Products and their Elimination MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Excretory Products and their Elimination">Chapter 16: Excretory Products and their
+                            Elimination</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(16, 'Excretory Products and their Elimination')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 17 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+17+MCQ"
+                                alt="Locomotion and Movement MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Locomotion and Movement">
+                            Chapter 17: Locomotion and Movement</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(17, 'Locomotion and Movement')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 18 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+18+MCQ"
+                                alt="Neural Control and Coordination MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Neural Control and Coordination">Chapter 18: Neural Control and Coordination</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(18, 'Neural Control and Coordination')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 19 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+19+MCQ"
+                                alt="Chemical Coordination and Integration MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Chemical Coordination and Integration">Chapter 19: Chemical Coordination and
+                            Integration</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(19, 'Chemical Coordination and Integration')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIT VI: Reproduction -->
+                <div class="col-span-full mt-12 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 flex-grow bg-gradient-to-r from-green-600 to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 uppercase tracking-wider">UNIT VI: Reproduction</h2>
+                        <div class="h-1 flex-grow bg-gradient-to-l from-green-600 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Chapter 20 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+20+MCQ"
+                                alt="Sexual Reproduction in Flowering Plants MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Sexual Reproduction in Flowering Plants">Chapter 20: Sexual Reproduction in Flowering
+                            Plants</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(20, 'Sexual Reproduction in Flowering Plants')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 21 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+21+MCQ"
+                                alt="Human Reproduction MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Human Reproduction">Chapter 21:
+                            Human Reproduction</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(21, 'Human Reproduction')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 22 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+22+MCQ"
+                                alt="Reproductive Health MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Reproductive Health">Chapter
+                            22: Reproductive Health</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(22, 'Reproductive Health')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIT VII: Genetics and Evolution -->
+                <div class="col-span-full mt-12 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 flex-grow bg-gradient-to-r from-green-600 to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 uppercase tracking-wider">UNIT VII: Genetics and
+                            Evolution</h2>
+                        <div class="h-1 flex-grow bg-gradient-to-l from-green-600 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Chapter 23 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+23+MCQ"
+                                alt="Principles of Inheritance and Variation MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Principles of Inheritance and Variation">Chapter 23: Principles of Inheritance and
+                            Variation</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(23, 'Principles of Inheritance and Variation')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 24 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+24+MCQ"
+                                alt="Molecular Basis of Inheritance MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Molecular Basis of Inheritance">Chapter 24: Molecular Basis of Inheritance</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(24, 'Molecular Basis of Inheritance')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 25 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+25+MCQ"
+                                alt="Evolution MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Evolution">Chapter 25:
+                            Evolution</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(25, 'Evolution')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIT VIII: Biology in Human Welfare -->
+                <div class="col-span-full mt-12 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 flex-grow bg-gradient-to-r from-green-600 to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 uppercase tracking-wider">UNIT VIII: Biology in
+                            Human Welfare</h2>
+                        <div class="h-1 flex-grow bg-gradient-to-l from-green-600 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Chapter 26 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+26+MCQ"
+                                alt="Human Health and Disease MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Human Health and Disease">
+                            Chapter 26: Human Health and Disease</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(26, 'Human Health and Disease')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 27 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+27+MCQ"
+                                alt="Microbes in Human Welfare MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Microbes in Human Welfare">
+                            Chapter 27: Microbes in Human Welfare</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(27, 'Microbes in Human Welfare')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIT IX: Biotechnology -->
+                <div class="col-span-full mt-12 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 flex-grow bg-gradient-to-r from-green-600 to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 uppercase tracking-wider">UNIT IX: Biotechnology
+                        </h2>
+                        <div class="h-1 flex-grow bg-gradient-to-l from-green-600 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Chapter 28 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+28+MCQ"
+                                alt="Biotechnology: Principles and Processes MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Biotechnology: Principles and Processes">Chapter 28: Biotechnology: Principles and
+                            Processes</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(28, 'Biotechnology: Principles and Processes')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 29 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+29+MCQ"
+                                alt="Biotechnology and its Applications MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate"
+                            title="Biotechnology and its Applications">Chapter 29: Biotechnology and its Applications
+                        </h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(29, 'Biotechnology and its Applications')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UNIT X: Ecology and Environment -->
+                <div class="col-span-full mt-12 mb-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="h-1 flex-grow bg-gradient-to-r from-green-600 to-transparent"></div>
+                        <h2 class="text-2xl font-bold text-gray-800 uppercase tracking-wider">UNIT X: Ecology and
+                            Environment</h2>
+                        <div class="h-1 flex-grow bg-gradient-to-l from-green-600 to-transparent"></div>
+                    </div>
+                </div>
+
+                <!-- Chapter 30 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+30+MCQ"
+                                alt="Organisms and Populations MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Organisms and Populations">
+                            Chapter 30: Organisms and Populations</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(30, 'Organisms and Populations')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 31 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+31+MCQ"
+                                alt="Ecosystem MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Ecosystem">Chapter 31:
+                            Ecosystem</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(31, 'Ecosystem')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chapter 32 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Chapter+32+MCQ"
+                                alt="Biodiversity and Conservation MCQ" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹100</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span
+                                class="question-count bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">60
+                                Questions</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 truncate" title="Biodiversity and Conservation">
+                            Chapter 32: Biodiversity and Conservation</h3>
+                        <p class="text-gray-600 mb-4 text-sm line-clamp-2">60 high-quality MCQs including Single line,
+                            Case-based, Assertion-Reasoning and more.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500 font-medium">
+                                <i class="fas fa-check-circle text-green-500 mr-1"></i> Solutions Included
+                            </div>
+                            <button onclick="accessMcqViewer(32, 'Biodiversity and Conservation')"
+                                class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-lg font-bold">
+                                Solve Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Based Questions Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">
+                    <i class="fas fa-file-medical mr-3"></i>Case Based Questions
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Special case-based questions designed to test your understanding and application of concepts
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-stethoscope text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Medical Cases</h3>
+                    <p class="text-gray-600 mb-4">150+ medical scenario-based questions</p>
+                    <div class="text-center mt-4">
+                        <span class="question-count">150 Questions</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-microscope text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Laboratory Cases</h3>
+                    <p class="text-gray-600 mb-4">100+ laboratory experiment-based questions</p>
+                    <div class="text-center mt-4">
+                        <span class="question-count">100 Questions</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-dna text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Research Cases</h3>
+                    <p class="text-gray-600 mb-4">50+ research methodology-based questions</p>
+                    <div class="text-center mt-4">
+                        <span class="question-count">50 Questions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Questions Preview -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Sample Questions Preview</h2>
+                <p class="text-lg text-gray-600">Get a glimpse of our high-quality MCQ questions</p>
+            </div>
+            <div class="bg-white rounded-lg p-8">
+                <div class="space-y-6">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="font-semibold text-gray-800">Q1. Chapter 1: The Living World</p>
+                                <p class="text-gray-600">Which of the following is not a characteristic of living
+                                    organisms?</p>
+                            </div>
+                            <div class="text-sm text-gray-500">
+                                <span class="question-count">Easy</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 space-y-2">
+                            <label class="flex items-center">
+                                <input type="radio" name="q1" class="mr-2">
+                                <span class="text-gray-700">(a) Growth and reproduction</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q1" class="mr-2">
+                                <span class="text-gray-700">(b) Consciousness and response to stimuli</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q1" class="mr-2">
+                                <span class="text-gray-700">(c) Metabolism and cellular organization</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q1" class="mr-2">
+                                <span class="text-gray-700">(d) Crystalline structure ✓</span>
+                            </label>
+                        </div>
+                        <div class="bg-blue-50 p-3 rounded-lg mt-2">
+                            <p class="text-blue-800"><strong>Answer:</strong> (d) Crystalline structure</p>
+                            <p class="text-blue-600 text-sm">Living organisms do not have crystalline structure, which
+                                is a characteristic of non-living things.</p>
+                        </div>
+                    </div>
+
+                    <div class="border-l-4 border-green-500 pl-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="font-semibold text-gray-800">Q2. Chapter 2: Biological Classification (Case
+                                    Based)</p>
+                                <p class="text-gray-600">A newly discovered organism shows the following
+                                    characteristics: eukaryotic, multicellular, photosynthetic, with cell walls made of
+                                    cellulose. To which kingdom does it belong?</p>
+                            </div>
+                            <div class="text-sm text-gray-500">
+                                <span class="question-count">Medium</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 space-y-2">
+                            <label class="flex items-center">
+                                <input type="radio" name="q2" class="mr-2">
+                                <span class="text-gray-700">(a) Monera</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q2" class="mr-2">
+                                <span class="text-gray-700">(b) Protista</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q2" class="mr-2">
+                                <span class="text-gray-700">(c) Fungi</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="radio" name="q2" class="mr-2">
+                                <span class="text-gray-700">(d) Plantae ✓</span>
+                            </label>
+                        </div>
+                        <div class="bg-green-50 p-3 rounded-lg mt-2">
+                            <p class="text-green-800"><strong>Answer:</strong> (d) Plantae</p>
+                            <p class="text-green-600 text-sm">The organism is eukaryotic, multicellular, photosynthetic
+                                with cellulose cell walls, which are characteristic of the Plantae kingdom.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 NEET UG Biology 360. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-blue-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal"
+        class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full p-6">
+            <h3 class="text-xl font-bold mb-4">Purchase MCQ Questions</h3>
+            <div class="space-y-4">
+                <div class="border rounded-lg p-4">
+                    <h4 class="font-semibold">Complete Package</h4>
+                    <p class="text-gray-600">All 1,920+ questions + Solutions + Case studies</p>
+                    <p class="text-2xl font-bold text-green-600">₹1,299</p>
+                </div>
+                <div class="border rounded-lg p-4">
+                    <h4 class="font-semibold">Individual Chapter</h4>
+                    <p class="text-gray-600">Access to selected chapter only</p>
+                    <p class="text-2xl font-bold text-blue-600">₹79</p>
+                </div>
+                <div class="flex space-x-3">
+                    <button onclick="proceedToPayment('complete')"
+                        class="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700">
+                        Buy Complete
+                    </button>
+                    <button onclick="closeModal()"
+                        class="flex-1 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-400">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function purchaseComplete() {
+            document.getElementById('purchaseModal').classList.remove('hidden');
+        }
+
+        function proceedToPayment(type) {
+            alert('Payment processing... This will integrate with UPI payment system.');
+            closeModal();
+        }
+
+        function closeModal() {
+            document.getElementById('purchaseModal').classList.add('hidden');
+        }
+
+        function accessMcqViewer(chapterId, chapterName) {
+            // Check if user is logged in
+            if (!localStorage.getItem('token')) {
+                alert('Please login to access MCQ questions.');
+                window.location.href = 'auth.html';
+                return;
+            }
+            // For now, redirect to viewer with chapter info (viewer will handle premium check)
+            window.location.href = `mcq-viewer.html?chapter_id=${chapterId}&chapter_name=${encodeURIComponent(chapterName)}`;
+        }
+    </script>
+
+    <!-- Authentication Script -->
+    <script src="js/auth-ui.js"></script>
+</body>
+
+</html>

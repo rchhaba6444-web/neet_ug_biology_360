@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - NEET UG Biology 360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/clear-auth.js"></script>
+    <style>
+        .course-card {
+            transition: all 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-graduation-cap text-blue-600 text-2xl"></i>
+                    <h1 class="text-xl font-bold text-gray-800">User Dashboard</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span id="userName" class="text-gray-600"></span>
+                    <button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Welcome Section -->
+        <section class="mb-8">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-8">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-2">Welcome back, <span id="welcomeName">Student</span>!</h2>
+                        <p class="text-white/90">Continue your NEET preparation journey</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="bg-white/20 rounded-lg p-4">
+                            <p class="text-sm text-white/80">Study Streak</p>
+                            <p class="text-2xl font-bold">15 Days</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Courses -->
+        <section class="mb-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">My Courses</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- NCERT Notes -->
+                <div class="course-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-book text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">NCERT Notes</h4>
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm text-gray-600">Progress</span>
+                                <span class="text-sm font-semibold text-blue-600">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="continueCourse('ncert')" class="flex-1 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+                                <i class="fas fa-play mr-2"></i>Continue
+                            </button>
+                            <button onclick="viewDetails('ncert')" class="px-4 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NCERT Exercise -->
+                <div class="course-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 bg-gradient-to-r from-yellow-500 to-yellow-600 flex items-center justify-center">
+                        <i class="fas fa-dumbbell text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">NCERT Exercise</h4>
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm text-gray-600">Progress</span>
+                                <span class="text-sm font-semibold text-yellow-600">45%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="continueCourse('exercise')" class="flex-1 bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">
+                                <i class="fas fa-play mr-2"></i>Continue
+                            </button>
+                            <button onclick="viewDetails('exercise')" class="px-4 py-2 border border-yellow-500 text-yellow-500 rounded-lg hover:bg-yellow-50 transition">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MCQ Questions -->
+                <div class="course-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-question-circle text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">MCQ Questions</h4>
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm text-gray-600">Progress</span>
+                                <span class="text-sm font-semibold text-purple-600">60%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="continueCourse('mcq')" class="flex-1 bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition">
+                                <i class="fas fa-play mr-2"></i>Continue
+                            </button>
+                            <button onclick="viewDetails('mcq')" class="px-4 py-2 border border-purple-500 text-purple-500 rounded-lg hover:bg-purple-50 transition">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mock Tests -->
+                <div class="course-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-clipboard-list text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Mock Tests</h4>
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm text-gray-600">Progress</span>
+                                <span class="text-sm font-semibold text-green-600">30%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="continueCourse('mock')" class="flex-1 bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition">
+                                <i class="fas fa-play mr-2"></i>Continue
+                            </button>
+                            <button onclick="viewDetails('mock')" class="px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-50 transition">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diagram Booklet -->
+                <div class="course-card bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="h-32 bg-gradient-to-r from-pink-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-image text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Diagram Booklet</h4>
+                        <div class="mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm text-gray-600">Progress</span>
+                                <span class="text-sm font-semibold text-pink-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-pink-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="continueCourse('diagram')" class="flex-1 bg-pink-500 text-white py-2 rounded-lg hover:bg-pink-600 transition">
+                                <i class="fas fa-play mr-2"></i>Continue
+                            </button>
+                            <button onclick="viewDetails('diagram')" class="px-4 py-2 border border-pink-500 text-pink-500 rounded-lg hover:bg-pink-50 transition">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="mb-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">Recent Activity</h3>
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-book text-blue-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Completed Chapter 5</h4>
+                                <p class="text-sm text-gray-600">NCERT Notes • 2 hours ago</p>
+                            </div>
+                        </div>
+                        <span class="text-green-500 text-sm font-semibold">+50 XP</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-dumbbell text-yellow-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Exercise Set 3 Completed</h4>
+                                <p class="text-sm text-gray-600">NCERT Exercise • 5 hours ago</p>
+                            </div>
+                        </div>
+                        <span class="text-green-500 text-sm font-semibold">+30 XP</span>
+                    </div>
+                    
+                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                                <i class="fas fa-question-circle text-purple-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">MCQ Test Score: 85%</h4>
+                                <p class="text-sm text-gray-600">Chapter 8 • Yesterday</p>
+                            </div>
+                        </div>
+                        <span class="text-green-500 text-sm font-semibold">+40 XP</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Study Stats -->
+        <section>
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">Study Statistics</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-semibold text-gray-700">Total Study Time</h4>
+                        <i class="fas fa-clock text-blue-500 text-xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-gray-800">124h 35m</p>
+                    <p class="text-sm text-gray-600">This month</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-semibold text-gray-700">Questions Practiced</h4>
+                        <i class="fas fa-check-circle text-green-500 text-xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-gray-800">1,247</p>
+                    <p class="text-sm text-gray-600">Total MCQs</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-semibold text-gray-700">Achievement Points</h4>
+                        <i class="fas fa-trophy text-yellow-500 text-xl"></i>
+                    </div>
+                    <p class="text-3xl font-bold text-gray-800">2,450</p>
+                    <p class="text-sm text-gray-600">Total XP earned</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg transform translate-y-full transition-transform duration-300 z-50">
+        <div class="flex items-center">
+            <i class="fas fa-info-circle mr-2"></i>
+            <span id="toastMessage">Info!</span>
+        </div>
+    </div>
+
+    <script>
+        // User authentication (simplified for demo)
+        const USER_EMAIL = 'student@neet.com';
+        const USER_PASSWORD = 'student123';
+        
+        // Check if user is logged in
+        function checkAuth() {
+            const isLoggedIn = localStorage.getItem('userLoggedIn');
+            if (!isLoggedIn) {
+                window.location.href = 'auth.html';
+                return;
+            }
+            
+            // Set user name
+            document.getElementById('userName').textContent = USER_EMAIL;
+            document.getElementById('welcomeName').textContent = 'Student';
+        }
+        
+        // Logout function for regular students (not admins)
+        function logout() {
+            // Clear student tokens
+            localStorage.removeItem('userLoggedIn');
+            localStorage.removeItem('neet_token');
+            localStorage.removeItem('neet_user');
+            
+            // Clear session flag to force fresh start on next page load
+            sessionStorage.removeItem('browserSessionActive');
+            
+            // Redirect to home page
+            window.location.href = 'index.html';
+        }
+        
+        // Course functions
+        function continueCourse(courseType) {
+            showToast(`Continuing ${courseType} course...`);
+            // In real app, this would navigate to course content
+            setTimeout(() => {
+                switch(courseType) {
+                    case 'ncert': window.location.href = 'ncert-notes-full.html'; break;
+                    case 'exercise': window.location.href = 'ncert-exercise.html'; break;
+                    case 'mcq': window.location.href = 'mcq-questions-full.html'; break;
+                    case 'mock': window.location.href = 'mock-tests.html'; break;
+                    case 'diagram': window.location.href = 'diagram-booklet.html'; break;
+                }
+            }, 1000);
+        }
+        
+        function viewDetails(courseType) {
+            showToast(`Viewing ${courseType} details...`);
+            // In real app, this would show detailed course information
+        }
+        
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
+            toast.classList.remove('translate-y-full');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-full');
+            }, 3000);
+        }
+        
+        // Initialize
+        checkAuth();
+    </script>
+</body>
+</html>

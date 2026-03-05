@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCERT Notes - NEET UG Biology 360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="js/clear-auth.js"></script>
+    <style>
+        .chapter-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            border-color: #4F46E5;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
+        }
+        .locked-content {
+            position: relative;
+            overflow: hidden;
+        }
+        .locked-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #F59E0B;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 20;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-dna text-blue-600 text-2xl"></i>
+                    <span class="text-xl font-bold text-gray-800">NEET UG Biology 360</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="ncert-notes.html" class="text-blue-600 font-semibold">NCERT Notes</a>
+                    <a href="mcq-questions.html" class="text-gray-700 hover:text-blue-600 transition-colors">MCQ Questions</a>
+                    <a href="diagram-booklet.html" class="text-gray-700 hover:text-blue-600 transition-colors">Diagram Booklet</a>
+                    <a href="pricing.html" class="text-gray-700 hover:text-blue-600 transition-colors">Pricing</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Auth Buttons (shown when logged out) -->
+                    <div id="authButtons" class="flex items-center space-x-4">
+                        <a href="auth.html"
+                            class="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors">Login</a>
+                        <a href="auth.html"
+                            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">Sign Up</a>
+                    </div>
+                    <!-- User Menu (shown when logged in) -->
+                    <div id="userMenu" class="hidden flex items-center space-x-4">
+                        <a href="dashboard.html"
+                            class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                            <i class="fas fa-tachometer-alt mr-2"></i>Dashboard
+                        </a>
+                        <button onclick="logout()" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    <i class="fas fa-book-open mr-3"></i>NCERT Notes
+                </h1>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    Complete chapter-wise NCERT notes for NEET UG Biology. Each chapter includes detailed explanations, 
+                    important diagrams, and previous year questions.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                        <i class="fas fa-file-alt mr-2"></i>
+                        <span class="font-semibold">32 Chapters</span>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                        <i class="fas fa-eye mr-2"></i>
+                        <span class="font-semibold">Online Access Only</span>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        <span class="font-semibold">Exam Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Banner -->
+    <section class="bg-yellow-50 border-b border-yellow-200">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-tag text-yellow-600 text-2xl"></i>
+                    <div>
+                        <h3 class="font-bold text-gray-800">Get Complete Access</h3>
+                        <p class="text-gray-600">All 32 chapters + Previous year questions</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="text-3xl font-bold text-blue-600">₹6400</div>
+                    <div class="text-sm text-gray-500 line-through">₹1,499</div>
+                </div>
+                <button onclick="purchaseNCERT()" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                    <i class="fas fa-shopping-cart mr-2"></i>Buy Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapters Grid -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Class 11 Header -->
+                <div class="col-span-full mb-6">
+                    <div class="bg-blue-600 text-white px-6 py-4 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-bold flex items-center">
+                            <i class="fas fa-graduation-cap mr-3"></i> 1st PUC (Class 11) Biology
+                        </h2>
+                        <p class="opacity-90 mt-1">Foundational concepts for NEET UG preparation</p>
+                    </div>
+                </div>
+                <!-- UNIT I: Diversity in the Living World -->
+                <div class="col-span-full mt-8 mb-4">
+                    <h3 class="text-xl font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-lg border-l-4 border-blue-600">UNIT I: Diversity in the Living World</h3>
+                </div>
+                <!-- Chapter 1 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 1" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 1: The Living World</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-1')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 2 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 2" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 2: Biological Classification</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-2')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 3 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 3" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 3: Plant Kingdom</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-3')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 4 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 4" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 4: Animal Kingdom</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-4')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- UNIT II: Structural Organisation in Plants and Animals -->
+                <div class="col-span-full mt-8 mb-4">
+                    <h3 class="text-xl font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-lg border-l-4 border-blue-600">UNIT II: Structural Organisation in Plants and Animals</h3>
+                </div>
+                <!-- Chapter 5 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 5" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 5: Morphology of Flowering Plants</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-5')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 6 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 6" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 6: Anatomy of Flowering Plants</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-6')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 7 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 7" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 7: Structural Organisation in Animals</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-7')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- UNIT III: Cell: Structure and Functions -->
+                <div class="col-span-full mt-8 mb-4">
+                    <h3 class="text-xl font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-lg border-l-4 border-blue-600">UNIT III: Cell: Structure and Functions</h3>
+                </div>
+                <!-- Chapter 8 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 8" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 8: Cell: The Unit of Life</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-8')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 9 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 9" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 9: Biomolecules</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-9')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 10 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 10" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 10: Cell Cycle and Cell Division</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-10')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- UNIT IV: Plant Physiology -->
+                <div class="col-span-full mt-8 mb-4">
+                    <h3 class="text-xl font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-lg border-l-4 border-blue-600">UNIT IV: Plant Physiology</h3>
+                </div>
+                <!-- Chapter 11 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 11" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 11: Photosynthesis in Higher Plants</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-11')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 12 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 12" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 12: Respiration in Plants</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-12')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 13 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 13" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 13: Plant Growth and Development</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-13')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- UNIT V: Human Physiology -->
+                <div class="col-span-full mt-8 mb-4">
+                    <h3 class="text-xl font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded-lg border-l-4 border-blue-600">UNIT V: Human Physiology</h3>
+                </div>
+                <!-- Chapter 14 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 14" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 14: Breathing and Exchange of Gases</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-14')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 15 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 15" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 15: Body Fluids and Circulation</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-15')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 16 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 16" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 16: Excretory Products and their Elimination</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-16')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 17 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 17" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 17: Locomotion and Movement</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-17')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 18 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 18" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 18: Neural Control and Coordination</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-18')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 19 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 19" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 19: Chemical Coordination and Integration</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-19')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Class 12 Header -->
+                <div class="col-span-full mt-16 mb-6">
+                    <div class="bg-green-600 text-white px-6 py-4 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-bold flex items-center">
+                            <i class="fas fa-user-graduate mr-3"></i> 2nd PUC (Class 12) Biology
+                        </h2>
+                        <p class="opacity-90 mt-1">Advanced topics and high-weightage chapters for NEET</p>
+                    </div>
+                </div>
+                <!-- UNIT VI: Reproduction -->
+                <div class="col-span-full mt-8 mb-4">
+                    <h3 class="text-xl font-bold text-green-600 bg-green-50 px-4 py-2 rounded-lg border-l-4 border-green-600">UNIT VI: Reproduction</h3>
+                </div>
+                <!-- Chapter 20 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 20" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 20: Sexual Reproduction in Flowering Plants</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-20')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 21 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 21" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 21: Human Reproduction</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-21')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 22 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 22" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 22: Reproductive Health</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-22')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- UNIT VII: Genetics and Evolution -->
+                <div class="col-span-full mt-8 mb-4">
+                    <h3 class="text-xl font-bold text-green-600 bg-green-50 px-4 py-2 rounded-lg border-l-4 border-green-600">UNIT VII: Genetics and Evolution</h3>
+                </div>
+                <!-- Chapter 23 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 23" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 23: Principles of Inheritance and Variation</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-23')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 24 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 24" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 24: Molecular Basis of Inheritance</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-24')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 25 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 25" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 25: Evolution</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-25')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- UNIT VIII: Biology in Human Welfare -->
+                <div class="col-span-full mt-8 mb-4">
+                    <h3 class="text-xl font-bold text-green-600 bg-green-50 px-4 py-2 rounded-lg border-l-4 border-green-600">UNIT VIII: Biology in Human Welfare</h3>
+                </div>
+                <!-- Chapter 26 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 26" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 26: Human Health and Disease</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-26')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 27 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 27" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 27: Microbes in Human Welfare</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-27')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- UNIT IX: Biotechnology -->
+                <div class="col-span-full mt-8 mb-4">
+                    <h3 class="text-xl font-bold text-green-600 bg-green-50 px-4 py-2 rounded-lg border-l-4 border-green-600">UNIT IX: Biotechnology</h3>
+                </div>
+                <!-- Chapter 28 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 28" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 28: Biotechnology: Principles and Processes</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-28')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 29 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 29" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 29: Biotechnology and its Applications</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-29')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- UNIT X: Ecology -->
+                <div class="col-span-full mt-8 mb-4">
+                    <h3 class="text-xl font-bold text-green-600 bg-green-50 px-4 py-2 rounded-lg border-l-4 border-green-600">UNIT X: Ecology</h3>
+                </div>
+                <!-- Chapter 30 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 30" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 30: Organisms and Populations</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-30')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 31 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 31" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 31: Ecosystem</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-31')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chapter 32 -->
+                <div class="chapter-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100">
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter 32" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Chapter 32: Biodiversity and Conservation</h3>
+                        <p class="text-sm text-gray-600 mb-4 line-clamp-2">Official NCERT Biology notes for NEET preparation. Comprehensive coverage of all topics.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-laptop mr-1"></i> Online Only
+                            </div>
+                            <button onclick="accessChapter('chapter-32')" class="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                                Access Note
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 NEET UG Biology 360. All rights reserved.</p>
+            <div class="mt-4 flex justify-center space-x-6">
+                <a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a>
+                <a href="https://wa.me/9513102159" class="hover:text-blue-400 transition-colors">WhatsApp: 9513102159</a>
+                <a href="mailto:kavirani576@gmail.com" class="hover:text-blue-400 transition-colors">Email: kavirani576@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full p-6">
+            <h3 class="text-xl font-bold mb-4">Purchase NCERT Notes</h3>
+            <div class="space-y-4">
+                <div class="border rounded-lg p-4">
+                    <h4 class="font-semibold">Individual Chapter</h4>
+                    <p class="text-gray-600">Access to selected chapter only</p>
+                    <p class="text-2xl font-bold text-blue-600">₹200</p>
+                </div>
+                <div class="flex space-x-3">
+                    <button onclick="proceedToPayment('complete')" class="flex-1 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+                        Buy Complete
+                    </button>
+                    <button onclick="closeModal()" class="flex-1 bg-gray-300 text-gray-700 py-2 rounded-lg hover:bg-gray-400">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function accessChapter(chapterId) {
+            document.getElementById('purchaseModal').classList.remove('hidden');
+        }
+
+        function purchaseNCERT() {
+            document.getElementById('purchaseModal').classList.remove('hidden');
+        }
+
+        function proceedToPayment(type) {
+            alert('Payment processing... This will integrate with UPI payment system.');
+            closeModal();
+        }
+
+        function closeModal() {
+            document.getElementById('purchaseModal').classList.add('hidden');
+        }
+    </script>
+
+    <!-- Authentication Script -->
+    <script src="js/auth-ui.js"></script>
+</body>
+</html>
