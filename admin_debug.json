@@ -1,0 +1,18 @@
+[
+  {
+    "id": 8,
+    "username": "rchhaba644",
+    "email": "rchhaba644@gmail.com",
+    "password": "$2a$10$docxPYjJOD4O7cz9fjuV9utvynk3J6fKRPGWdBgNIVq.xyrzEsSu6",
+    "role": "admin",
+    "created_at": "2026-02-08 15:56:19"
+  },
+  {
+    "id": 85,
+    "username": "kavirani",
+    "email": "kavirani576@gmail.com",
+    "password": "$2a$10$WmR8vTrEGKhBwSXjojT9iuyh8V1dvJHpeccZddJm79gV/o10Z6CPO",
+    "role": "admin",
+    "created_at": "2026-03-05 18:10:48"
+  }
+]

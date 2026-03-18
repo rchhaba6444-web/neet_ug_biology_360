@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCERT Exercise & Exemplar - NEET Biology 360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .chapter-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .locked-content {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .locked-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .price-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #10B981;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 10;
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-2xl font-bold text-blue-600">NEET Biology 360</a>
+                    <span class="text-gray-400">|</span>
+                    <span class="text-lg font-semibold text-gray-700">NCERT Exercise & Exemplar</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                    <a href="ncert-notes-full.html" class="text-gray-600 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-book mr-2"></i>NCERT Notes
+                    </a>
+                    <a href="mcq-questions-full.html" class="text-gray-600 hover:text-blue-600 transition-colors">
+                        <i class="fas fa-question-circle mr-2"></i>MCQ Questions
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    NCERT Exercise & Exemplar
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">
+                    Chapter-wise questions and answers from NCERT textbook and exemplar problems
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                        <i class="fas fa-book-open mr-2"></i>
+                        <span class="font-semibold">Textbook Exercises</span>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                        <i class="fas fa-star mr-2"></i>
+                        <span class="font-semibold">Exemplar Problems</span>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        <span class="font-semibold">Detailed Solutions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="bg-yellow-50 border-b border-yellow-200 py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-tag text-yellow-600 text-2xl"></i>
+                    <div>
+                        <h3 class="font-bold text-gray-800">Get Complete Access</h3>
+                        <p class="text-gray-600">All 32 chapters + Textbook Exercises + Exemplar Problems + Solutions
+                        </p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="text-3xl font-bold text-green-600">₹3,200</div>
+                    <div class="text-sm text-gray-500 line-through">₹3,999</div>
+                    <div class="text-sm text-blue-600">₹200 per individual chapter</div>
+                </div>
+                <button onclick="purchaseExercise()"
+                    class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                    <i class="fas fa-shopping-cart mr-2"></i>Buy Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Units Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
+                Choose Your Unit
+            </h2>
+
+            <!-- Unit Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div onclick="showUnitChapters('unit1')"
+                    class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all cursor-pointer border border-gray-100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-microscope text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit I</h3>
+                        <p class="text-gray-600">The Living World</p>
+                    </div>
+                </div>
+
+                <div onclick="showUnitChapters('unit2')"
+                    class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all cursor-pointer border border-gray-100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-leaf text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit II</h3>
+                        <p class="text-gray-600">Biological Classification</p>
+                    </div>
+                </div>
+
+                <div onclick="showUnitChapters('unit3')"
+                    class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all cursor-pointer border border-gray-100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-dna text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit III</h3>
+                        <p class="text-gray-600">Plant Kingdom</p>
+                    </div>
+                </div>
+
+                <div onclick="showUnitChapters('unit4')"
+                    class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all cursor-pointer border border-gray-100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-paw text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit IV</h3>
+                        <p class="text-gray-600">Animal Kingdom</p>
+                    </div>
+                </div>
+
+                <div onclick="showUnitChapters('unit5')"
+                    class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all cursor-pointer border border-gray-100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-seedling text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit V</h3>
+                        <p class="text-gray-600">Plant Physiology</p>
+                    </div>
+                </div>
+
+                <div onclick="showUnitChapters('unit6')"
+                    class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all cursor-pointer border border-gray-100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heartbeat text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Unit VI</h3>
+                        <p class="text-gray-600">Human Physiology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapters Section -->
+    <section id="chaptersSection" class="py-12 bg-gray-50" style="display: none;">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">
+                Chapter-wise Exercise & Exemplar
+            </h2>
+
+            <div id="chaptersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Chapters will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-lg font-bold mb-4">NEET Biology 360</h4>
+                    <p class="text-gray-400">Complete preparation platform for NEET Biology with comprehensive study
+                        materials.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="ncert-notes-full.html" class="hover:text-white transition-colors">NCERT Notes</a>
+                        </li>
+                        <li><a href="mcq-questions-full.html" class="hover:text-white transition-colors">MCQ
+                                Questions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Courses</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="ncert-exercise.html" class="hover:text-white transition-colors">NCERT Exercise</a>
+                        </li>
+                        <li><a href="mock-test-full.html" class="hover:text-white transition-colors">Mock Tests</a></li>
+                        <li><a href="diagram-booklet-full.html" class="hover:text-white transition-colors">Diagram
+                                Booklet</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>kavirani576@gmail.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>+91 95131 02159</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 NEET Biology 360. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Chapter data for each unit
+        const unitChapters = {
+            unit1: [
+                { num: 1, title: 'The Living World', questions: 45, exemplar: 25 },
+                { num: 2, title: 'Biological Classification', questions: 52, exemplar: 30 },
+                { num: 3, title: 'Plant Kingdom', questions: 68, exemplar: 35 },
+                { num: 4, title: 'Animal Kingdom', questions: 72, exemplar: 40 },
+                { num: 5, title: 'Morphology of Flowering Plants', questions: 58, exemplar: 32 }
+            ],
+            unit2: [
+                { num: 6, title: 'Anatomy of Flowering Plants', questions: 65, exemplar: 38 },
+                { num: 7, title: 'Structural Organisation in Animals', questions: 55, exemplar: 28 },
+                { num: 8, title: 'Cell: The Unit of Life', questions: 78, exemplar: 42 }
+            ],
+            unit3: [
+                { num: 9, title: 'Biomolecules', questions: 62, exemplar: 33 },
+                { num: 10, title: 'Cell Cycle and Cell Division', questions: 70, exemplar: 36 }
+            ],
+            unit4: [
+                { num: 11, title: 'Photosynthesis in Higher Plants', questions: 68, exemplar: 37 },
+                { num: 12, title: 'Respiration in Plants', questions: 64, exemplar: 34 },
+                { num: 13, title: 'Plant Growth and Development', questions: 56, exemplar: 30 }
+            ],
+            unit5: [
+                { num: 14, title: 'Breathing and Exchange of Gases', questions: 72, exemplar: 39 },
+                { num: 15, title: 'Body Fluids and Circulation', questions: 76, exemplar: 41 },
+                { num: 16, title: 'Excretory Products and their Elimination', questions: 68, exemplar: 36 }
+            ],
+            unit6: [
+                { num: 17, title: 'Locomotion and Movement', questions: 64, exemplar: 35 },
+                { num: 18, title: 'Neural Control and Coordination', questions: 70, exemplar: 38 },
+                { num: 19, title: 'Chemical Coordination and Integration', questions: 66, exemplar: 34 },
+                { num: 20, title: 'Sexual Reproduction in Flowering Plants', questions: 74, exemplar: 40 },
+                { num: 21, title: 'Human Reproduction', questions: 78, exemplar: 42 },
+                { num: 22, title: 'Reproductive Health', questions: 60, exemplar: 32 },
+                { num: 23, title: 'Principles of Inheritance and Variation', questions: 82, exemplar: 44 },
+                { num: 24, title: 'Molecular Basis of Inheritance', questions: 76, exemplar: 41 },
+                { num: 25, title: 'Evolution', questions: 64, exemplar: 35 },
+                { num: 26, title: 'Human Health and Disease', questions: 70, exemplar: 38 },
+                { num: 27, title: 'Microbes in Human Welfare', questions: 62, exemplar: 33 },
+                { num: 28, title: 'Biotechnology: Principles and Processes', questions: 68, exemplar: 37 },
+                { num: 29, title: 'Biotechnology and its Applications', questions: 66, exemplar: 36 },
+                { num: 30, title: 'Organisms and Populations', questions: 58, exemplar: 31 },
+                { num: 31, title: 'Ecosystem', questions: 64, exemplar: 35 },
+                { num: 32, title: 'Biodiversity and Conservation', questions: 60, exemplar: 32 }
+            ]
+        };
+
+        function showUnitChapters(unitId) {
+            const chapters = unitChapters[unitId] || [];
+            const chaptersGrid = document.getElementById('chaptersGrid');
+            const chaptersSection = document.getElementById('chaptersSection');
+
+            // Clear existing chapters
+            chaptersGrid.innerHTML = '';
+
+            // Generate chapter cards
+            chapters.forEach(chapter => {
+                const chapterCard = document.createElement('div');
+                chapterCard.className = 'chapter-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all cursor-pointer';
+                chapterCard.innerHTML = `
+                    <div class="relative">
+                        <div class="locked-content">
+                            <img src="images/biology-image.png" alt="Chapter ${chapter.num}" class="w-full h-48 object-cover">
+                            <div class="flex items-center justify-center text-white">
+                                <div class="text-center">
+                                    <i class="fas fa-lock text-4xl mb-3"></i>
+                                    <p class="font-semibold">Purchase to Access</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="price-tag">₹200</div>
+                        <div class="absolute top-4 left-4 z-20">
+                            <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                                ${chapter.questions} Questions
+                            </span>
+                        </div>
+                        <div class="absolute top-4 right-4 z-20">
+                            <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                                ${chapter.exemplar} Exemplar
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Chapter ${chapter.num}: ${chapter.title}</h3>
+                        <p class="text-gray-600 mb-4 text-sm">NCERT textbook exercises and exemplar problems with detailed solutions for comprehensive practice.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">
+                                <i class="fas fa-file-pdf mr-1"></i> PDF Available
+                            </div>
+                            <button onclick="accessChapter('chapter-${chapter.num}')" class="px-4 py-2 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700 transition-colors">
+                                Access Exercise
+                            </button>
+                        </div>
+                    </div>
+                `;
+                chaptersGrid.appendChild(chapterCard);
+            });
+
+            // Show chapters section
+            chaptersSection.style.display = 'block';
+            chaptersSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function accessChapter(chapterId) {
+            // Simulate chapter access
+            alert(`Accessing ${chapterId} - This would redirect to the detailed exercise and exemplar page with questions and answers.`);
+        }
+
+        function purchaseExercise() {
+            // Simulate purchase
+            alert('Redirecting to payment page for NCERT Exercise & Exemplar complete access...');
+        }
+    </script>
+</body>
+
+</html>

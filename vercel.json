@@ -1,0 +1,38 @@
+{
+  "name": "neet-biology-360",
+  "version": "2.0.0",
+  "description": "NEET Biology 360 - Complete Learning Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'No build step needed'"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "sqlite3": "^5.1.6",
+    "nodemailer": "^6.9.7",
+    "razorpay": "^2.9.2",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "xss": "^1.0.14"
+  },
+  "keywords": [
+    "neet",
+    "biology",
+    "education",
+    "learning",
+    "mcq",
+    "notes"
+  ],
+  "author": "NEET Biology 360 Team",
+  "license": "MIT"
+}

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - NEET UG Biology 360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-dna text-blue-600 text-2xl"></i>
+                    <span class="text-xl font-bold text-gray-800">NEET UG Biology 360</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="ncert-notes.html" class="text-gray-700 hover:text-blue-600 transition-colors">NCERT Notes</a>
+                    <a href="mcq-questions.html" class="text-gray-700 hover:text-blue-600 transition-colors">MCQ Questions</a>
+                    <a href="diagram-booklet.html" class="text-gray-700 hover:text-blue-600 transition-colors">Diagram Booklet</a>
+                    <a href="pricing.html" class="text-blue-600 font-semibold">Pricing</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors">
+                        Login
+                    </button>
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        Sign Up
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-12 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    <i class="fas fa-tag mr-3"></i>Simple & Transparent Pricing
+                </h1>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    Choose the perfect plan for your NEET UG Biology preparation. No hidden fees, no surprises.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Basic Plan</h3>
+                    <div class="mb-6">
+                        <span class="text-2xl font-bold text-yellow-600">₹5,200</span>
+                        <span class="text-gray-600">/one-time</span>
+                        <div class="text-sm text-blue-600 mt-1">₹200 per individual test/chapter</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Mock Tests (20+)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            NCERT Exercise + Exemplar
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Live Classes (2 sessions + 1 FREE Demo)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Performance Analytics
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            Email Support
+                        </li>
+                    </ul>
+                    <button onclick="purchasePlan('basic')" class="w-full px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
+                        Choose Basic
+                    </button>
+                </div>
+
+                <!-- Popular Plan -->
+                <div class="bg-green-600 text-white rounded-lg shadow-lg p-8 transform scale-105">
+                    <div class="bg-yellow-400 text-gray-800 text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
+                        MOST POPULAR
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Popular Plan</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">₹8,400</span>
+                        <span>/one-time</span>
+                        <div class="text-sm text-yellow-300 mt-1">₹200 per individual test/chapter</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            MCQ Questions (2100+)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            NCERT Notes (Digital)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            Diagram Booklet (FREE)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            Live Classes (6 sessions + 1 FREE Demo)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            Previous Year Questions
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            Priority Support
+                        </li>
+                    </ul>
+                    <button onclick="purchasePlan('popular')" class="w-full px-6 py-3 bg-white text-green-600 rounded-lg hover:bg-gray-100 font-bold">
+                        Choose Popular
+                    </button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="bg-purple-600 text-white rounded-lg shadow-lg p-8">
+                    <div class="bg-yellow-400 text-gray-800 text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">
+                        BEST VALUE
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Premium Plan</h3>
+                    <div class="mb-6">
+                        <span class="text-4xl font-bold">₹13,600</span>
+                        <span class="text-gray-200">/one-time</span>
+                        <div class="text-sm text-yellow-300 mt-1">All Courses + Diagrams</div>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            NCERT Notes (Digital)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            MCQ Questions (2100+)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            Mock Tests (20+)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            NCERT Exercise + Exemplar
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            Complete Diagram Booklet
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            Live Classes (10 sessions + 1 FREE Demo)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            1-on-1 Doubt Sessions
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            Personal Study Plan
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            24/7 Priority Support
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            WhatsApp Support
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check mr-3"></i>
+                            Certificate of Completion
+                        </li>
+                    </ul>
+                    <button onclick="purchasePlan('premium')" class="w-full px-6 py-3 bg-yellow-400 text-purple-800 rounded-lg hover:bg-yellow-500 font-bold">
+                        Choose Premium
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Individual Pricing -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Individual Course Pricing</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-diagram-project text-3xl text-blue-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800">Diagram Booklet</h3>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="text-2xl font-bold text-green-600">FREE</span>
+                        <span class="text-sm text-gray-500 block">With any course purchase</span>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm text-gray-600">
+                        <li>• 500+ Diagrams</li>
+                        <li>• NCERT-based</li>
+                        <li>• Labeled illustrations</li>
+                        <li>• Printable format</li>
+                        <li class="font-semibold text-green-600">• Free with any course</li>
+                    </ul>
+                    <a href="diagram-booklet.html" class="block w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 text-center">
+                        Access Now
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-book text-3xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800">NCERT Notes</h3>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="text-2xl font-bold text-green-600">₹3,200</span>
+                        <span class="text-sm text-gray-500 block">Complete Package</span>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm text-gray-600">
+                        <li>• 32 Chapters</li>
+                        <li>• Detailed explanations</li>
+                        <li>• Topic-wise</li>
+                        <li>• Printable PDF</li>
+                        <li class="font-semibold text-blue-600">• Includes FREE Diagrams</li>
+                    </ul>
+                    <a href="ncert-notes.html" class="block w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 text-center">
+                        View Details
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-compass text-3xl text-indigo-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800">NCERT Explorer</h3>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="text-2xl font-bold text-indigo-600">₹3,200</span>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm text-gray-600">
+                        <li>• Complete Exercise</li>
+                        <li>• Answer with Sol</li>
+                        <li>• Concept Diagram</li>
+                        <li>• NEET Mapping</li>
+                        <li class="font-semibold text-blue-600">• Includes FREE Diagrams</li>
+                    </ul>
+                    <a href="ncert-exercise.html" class="block w-full px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 text-center">
+                        View Details
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-question-circle text-3xl text-purple-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800">MCQ Questions</h3>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="text-2xl font-bold text-purple-600">₹2,000</span>
+                        <span class="text-sm text-gray-500 block">Complete Package</span>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm text-gray-600">
+                        <li>• 2100+ Questions</li>
+                        <li>• Chapter-wise</li>
+                        <li>• Case-based</li>
+                        <li>• Detailed solutions</li>
+                        <li class="font-semibold text-blue-600">• Includes FREE Diagrams</li>
+                    </ul>
+                    <a href="mcq-questions.html" class="block w-full px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 text-center">
+                        View Details
+                    </a>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-clipboard-list text-3xl text-orange-600 mb-3"></i>
+                        <h3 class="text-xl font-bold text-gray-800">Mock Tests</h3>
+                    </div>
+                    <div class="text-center mb-4">
+                        <span class="text-2xl font-bold text-orange-600">₹2,000</span>
+                        <span class="text-sm text-gray-500 block">20 Full Tests</span>
+                    </div>
+                    <ul class="space-y-2 mb-6 text-sm text-gray-600">
+                        <li>• 20 Full-length Tests</li>
+                        <li>• 3 Hours Each</li>
+                        <li>• 180 Questions</li>
+                        <li>• Performance Analysis</li>
+                        <li class="font-semibold text-blue-600">• Includes FREE Diagrams</li>
+                    </ul>
+                    <a href="mock-test.html" class="block w-full px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 text-center">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Payment Methods</h2>
+                <p class="text-lg text-gray-600">We accept all major UPI payment methods</p>
+            </div>
+            <div class="flex justify-center space-x-8">
+                <div class="text-center">
+                    <i class="fas fa-mobile-alt text-4xl text-green-600 mb-3"></i>
+                    <h3 class="font-semibold">PhonePe</h3>
+                </div>
+                <div class="text-center">
+                    <i class="fab fa-google-pay text-4xl text-blue-600 mb-3"></i>
+                    <h3 class="font-semibold">Google Pay</h3>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-qrcode text-4xl text-purple-600 mb-3"></i>
+                    <h3 class="font-semibold">Paytm</h3>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-credit-card text-4xl text-orange-600 mb-3"></i>
+                    <h3 class="font-semibold">All UPI Apps</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024-2026 NEET UG Biology 360. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6 text-sm">
+                    <a href="terms.html" class="text-gray-400 hover:text-white transition-colors">Terms & Conditions</a>
+                    <a href="privacy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Razorpay Checkout Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <script>
+        // Check if user is logged in
+        function getToken() {
+            return localStorage.getItem('neet_token');
+        }
+
+        async function purchasePlan(plan) {
+            const token = getToken();
+            
+            // Plans configuration
+            const plans = {
+                basic: { name: 'Basic Plan', price: 5200, description: 'Mock Tests + NCERT Exercise + 2 Live Classes' },
+                popular: { name: 'Popular Plan', price: 8400, description: 'MCQs + NCERT Notes + 6 Live Classes' },
+                premium: { name: 'Premium Plan', price: 13600, description: 'All Content + 10 Live Classes + Premium Support' }
+            };
+            
+            const selectedPlan = plans[plan];
+            
+            if (!token) {
+                const proceed = confirm(`Please login first to purchase ${selectedPlan.name}.\n\nDo you want to login now?`);
+                if (proceed) {
+                    window.location.href = 'auth.html';
+                }
+                return;
+            }
+
+            // Get user info for prefill
+            const userStr = localStorage.getItem('neet_user');
+            let userInfo = {};
+            if (userStr) {
+                try {
+                    userInfo = JSON.parse(userStr);
+                } catch (e) {
+                    console.error('Error parsing user info:', e);
+                }
+            }
+
+            try {
+                // Show loading
+                const loadingMsg = document.createElement('div');
+                loadingMsg.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
+                loadingMsg.innerHTML = '<div class="bg-white rounded-lg p-8 text-center"><div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full border-blue-600 border-t-transparent mb-4"></div><p class="text-gray-700">Processing your order...</p></div>';
+                document.body.appendChild(loadingMsg);
+
+                // Create order on server
+                const response = await fetch('/api/create-order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        amount: selectedPlan.price,
+                        plan_name: selectedPlan.name,
+                        plan_type: plan
+                    })
+                });
+
+                const data = await response.json();
+                loadingMsg.remove();
+
+                if (!response.ok) {
+                    if (data.error === 'Payment gateway not configured' || data.error === 'Payment gateway not configured') {
+                        const proceed = confirm('⚠️ Payment system is under maintenance.\n\nWould you like to contact us on WhatsApp to complete your purchase?\n\nPhone: +91 95131 02159');
+                        if (proceed) {
+                            window.open('https://wa.me/919513102159?text=Hi! I want to purchase ' + encodeURIComponent(selectedPlan.name) + ' for ₹' + selectedPlan.price, '_blank');
+                        }
+                        return;
+                    }
+                    throw new Error(data.error || 'Failed to create order');
+                }
+
+                // Check if Razorpay is loaded
+                if (typeof Razorpay === 'undefined') {
+                    throw new Error('Razorpay SDK not loaded. Please check your internet connection.');
+                }
+
+                // Initialize Razorpay checkout
+                const options = {
+                    key: data.key_id,
+                    amount: data.amount,
+                    currency: data.currency || 'INR',
+                    name: 'NEET UG Biology 360',
+                    description: selectedPlan.description,
+                    order_id: data.order_id,
+                    handler: async function (response) {
+                        // Show processing message
+                        const processingMsg = document.createElement('div');
+                        processingMsg.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center';
+                        processingMsg.innerHTML = '<div class="bg-white rounded-lg p-8 text-center"><div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full border-green-600 border-t-transparent mb-4"></div><p class="text-gray-700">Verifying payment...</p></div>';
+                        document.body.appendChild(processingMsg);
+
+                        // Verify payment
+                        try {
+                            const verifyResponse = await fetch('/api/verify-payment', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${token}`
+                                },
+                                body: JSON.stringify({
+                                    razorpay_payment_id: response.razorpay_payment_id,
+                                    razorpay_order_id: response.razorpay_order_id,
+                                    razorpay_signature: response.razorpay_signature,
+                                    plan_name: selectedPlan.name,
+                                    amount: data.amount
+                                })
+                            });
+
+                            const verifyData = await verifyResponse.json();
+                            processingMsg.remove();
+
+                            if (verifyData.success) {
+                                alert('🎉 Payment Successful!\n\nYour ' + selectedPlan.name + ' has been activated.\n\nYou will receive confirmation on your email and WhatsApp shortly.\n\nRedirecting to dashboard...');
+                                window.location.href = 'dashboard.html';
+                            } else {
+                                alert('❌ Payment verification failed: ' + (verifyData.error || 'Unknown error') + '\n\nPlease contact support with your payment ID: ' + response.razorpay_payment_id);
+                            }
+                        } catch (error) {
+                            processingMsg.remove();
+                            console.error('Verification error:', error);
+                            alert('⚠️ Payment completed but verification pending.\n\nPayment ID: ' + response.razorpay_payment_id + '\n\nWe will update your account shortly. Please contact support if you don\'t see access within 24 hours.');
+                        }
+                    },
+                    prefill: {
+                        name: userInfo.full_name || userInfo.username || '',
+                        email: userInfo.email || '',
+                        contact: userInfo.phone || ''
+                    },
+                    theme: {
+                        color: '#2563eb'
+                    },
+                    modal: {
+                        ondismiss: function() {
+                            console.log('Payment modal closed by user');
+                        }
+                    },
+                    notes: {
+                        plan: selectedPlan.name,
+                        user_id: userInfo.id || ''
+                    }
+                };
+
+                const rzp = new Razorpay(options);
+                
+                // Error handling for Razorpay
+                rzp.on('payment.failed', function (response) {
+                    console.error('Payment failed:', response.error);
+                    alert('❌ Payment Failed!\n\nError: ' + (response.error.description || response.error.reason || 'Unknown error') + '\n\nPlease try again or contact support.');
+                });
+
+                rzp.open();
+
+            } catch (error) {
+                console.error('Payment error:', error);
+                alert('❌ Error: ' + error.message + '\n\nPlease try again or contact us on WhatsApp: +91 95131 02159');
+            }
+        }
+
+        // Make function globally available
+        window.purchasePlan = purchasePlan;
+    </script>
+</body>
+</html>
